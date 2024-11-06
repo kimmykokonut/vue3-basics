@@ -7,6 +7,7 @@ const app = Vue.createApp({
       //remove image, replace with selVar for computing
       selectedVariant: 0,
       //   inStock: false,
+      onSale: true,
       details: ["50% cotton", "30% wool", "20% polyester"],
       variants: [
         {
@@ -42,6 +43,12 @@ const app = Vue.createApp({
     },
     inStock() {
       return this.variants[this.selectedVariant].quantity;
+    },
+    sale() {
+      if (this.onSale) {
+        return this.brand + " " + this.product + " is on sale";
+      }
+      return "";
     },
   },
 });
